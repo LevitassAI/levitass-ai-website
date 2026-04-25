@@ -63,9 +63,11 @@
 
   function createParticle() {
     var colors = [
-      { r: 108, g: 99, b: 255 },   // Purple
-      { r: 0, g: 194, b: 255 },     // Cyan
-      { r: 130, g: 120, b: 255 }    // Light purple
+      { r: 124, g: 107, b: 255 },   // Purple
+      { r: 168, g: 85, b: 247 },    // Violet
+      { r: 6, g: 182, b: 212 },     // Cyan
+      { r: 236, g: 72, b: 153 },    // Pink
+      { r: 99, g: 102, b: 241 }     // Indigo
     ];
     var color = colors[Math.floor(Math.random() * colors.length)];
     return {
