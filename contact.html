@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ — Levitass AI</title>
+  <meta name="description" content="Levitass AIへのお問い合わせはこちら。Web制作・AI統合のご相談を無料で承ります。">
+  <meta property="og:title" content="お問い合わせ — Levitass AI">
+  <meta property="og:description" content="Web制作・AI統合のご相談を無料で承ります。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://levitass.com/contact.html">
+  <meta property="og:image" content="https://levitass.com/images/og-image.webp">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Levitass AI ホーム">
+        <img class="nav__logo-icon" src="images/logo.png" alt="Levitass AI" width="36" height="36">
+        Levitass <span>AI</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link">ホーム</a>
+        <a href="about.html" class="nav__link">会社概要</a>
+        <a href="services.html" class="nav__link">サービス</a>
+        <a href="contact.html" class="nav__link nav__link--active">お問い合わせ</a>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">無料相談</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+        <span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <main class="page-content">
+    <!-- Page Header -->
+    <section class="section" id="contact-hero" style="padding-top: calc(var(--section-padding) + var(--space-8)); padding-bottom: var(--space-8);">
+      <div class="container">
+        <div class="section__header fade-in">
+          <p class="badge">Contact Us</p>
+          <h1 class="section__title">お問い合わせ</h1>
+          <div class="divider"></div>
+          <p class="section__subtitle">プロジェクトのご相談、お見積もり依頼など、お気軽にお問い合わせください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="section section--alt" id="contact-form-section" style="padding-top: var(--space-8);">
+      <div class="container">
+        <div class="grid grid--2" style="gap: var(--space-16); align-items: flex-start;">
+          <!-- Form -->
+          <div class="fade-in-left">
+            <div class="card card--glass" style="padding: var(--space-10);">
+              <h2 style="font-size: var(--font-size-xl); margin-bottom: var(--space-8);">お問い合わせフォーム</h2>
+              <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                <div class="form-group" id="nameGroup">
+                  <label for="name" class="form-label">お名前<span class="required">*</span></label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="山田 太郎" required autocomplete="name">
+                  <p class="form-error" id="nameError">お名前を入力してください</p>
+                </div>
+                <div class="form-group" id="emailGroup">
+                  <label for="email" class="form-label">メールアドレス<span class="required">*</span></label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="info@example.com" required autocomplete="email">
+                  <p class="form-error" id="emailError">有効なメールアドレスを入力してください</p>
+                </div>
+                <div class="form-group" id="phoneGroup">
+                  <label for="phone" class="form-label">電話番号</label>
+                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="090-1234-5678" autocomplete="tel">
+                </div>
+                <div class="form-group" id="budgetGroup">
+                  <label for="budget" class="form-label">ご予算帯</label>
+                  <select id="budget" name="budget" class="form-select">
+                    <option value="" disabled selected>お選びください</option>
+                    <option value="~200000">〜20万円</option>
+                    <option value="200000-500000">20万〜50万円</option>
+                    <option value="500000-1000000">50万〜100万円</option>
+                    <option value="1000000~">100万円以上</option>
+                    <option value="undecided">未定・相談したい</option>
+                  </select>
+                </div>
+                <div class="form-group" id="subjectGroup">
+                  <label for="subject" class="form-label">件名<span class="required">*</span></label>
+                  <input type="text" id="subject" name="subject" class="form-input" placeholder="Webサイト制作のご相談" required>
+                  <p class="form-error" id="subjectError">件名を入力してください</p>
+                </div>
+                <div class="form-group" id="messageGroup">
+                  <label for="message" class="form-label">お問い合わせ内容<span class="required">*</span></label>
+                  <textarea id="message" name="message" class="form-textarea" placeholder="ご相談内容をお聞かせください..." required></textarea>
+                  <p class="form-error" id="messageError">お問い合わせ内容を入力してください</p>
+                </div>
+                <div class="form-group">
+                  <label class="consent">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <span>送信された情報は<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に基づき取り扱います。</span>
+                  </label>
+                  <p class="form-error" id="consentError">プライバシーポリシーへの同意が必要です</p>
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;" id="submitBtn">
+                  送信する
+                  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+              </form>
+              <div id="formSuccess" class="form-message" role="alert"></div>
+              <div id="formError" class="form-message" role="alert"></div>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="fade-in-right">
+            <div style="margin-bottom: var(--space-10);">
+              <h2 style="font-size: var(--font-size-xl); margin-bottom: var(--space-6);">お気軽にご連絡ください</h2>
+              <p style="color: var(--color-text-secondary); line-height: var(--line-height-relaxed); margin-bottom: var(--space-8);">
+                Webサイト制作やAI統合に関するご質問、お見積もり依頼など、どんなことでもお気軽にご相談ください。
+                通常1〜2営業日以内にご返信いたします。
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+              <div class="card card--glass" style="padding: var(--space-6); display: flex; align-items: center; gap: var(--space-5);">
+                <div class="card__icon" style="margin-bottom: 0; width: 48px; height: 48px; flex-shrink: 0; font-size: var(--font-size-lg);">📧</div>
+                <div>
+                  <h3 style="font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-1);">メール</h3>
+                  <a href="mailto:info@levitass.com" style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">info@levitass.com</a>
+                </div>
+              </div>
+              <div class="card card--glass" style="padding: var(--space-6); display: flex; align-items: center; gap: var(--space-5);">
+                <div class="card__icon" style="margin-bottom: 0; width: 48px; height: 48px; flex-shrink: 0; font-size: var(--font-size-lg);">🕐</div>
+                <div>
+                  <h3 style="font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-1);">営業時間</h3>
+                  <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">平日 10:00 〜 18:00</p>
+                </div>
+              </div>
+              <div class="card card--glass" style="padding: var(--space-6); display: flex; align-items: center; gap: var(--space-5);">
+                <div class="card__icon" style="margin-bottom: 0; width: 48px; height: 48px; flex-shrink: 0; font-size: var(--font-size-lg);">💬</div>
+                <div>
+                  <h3 style="font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-1);">レスポンス</h3>
+                  <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">1〜2営業日以内にご返信</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Levitass <span>AI</span></a>
+          <p class="footer__desc">AI技術を活用した次世代のWeb制作サービスを提供。</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">ナビゲーション</h4>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">ホーム</a>
+            <a href="about.html" class="footer__link">会社概要</a>
+            <a href="services.html" class="footer__link">サービス</a>
+            <a href="contact.html" class="footer__link">お問い合わせ</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">サービス</h4>
+          <div class="footer__links">
+            <a href="services.html" class="footer__link">Web制作</a>
+            <a href="services.html" class="footer__link">AI統合</a>
+            <a href="services.html" class="footer__link">運用・改善</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">法的情報</h4>
+          <div class="footer__links">
+            <a href="privacy.html" class="footer__link">プライバシーポリシー</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Levitass AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

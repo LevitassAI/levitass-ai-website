@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Levitass AI — AIで、ビジネスを次のステージへ</title>
+  <meta name="description" content="Levitass AIは、AI技術を活用した次世代のWeb制作サービスを提供します。高品質なWebサイトを、AIの力でより速く、より美しく。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="Levitass AI — AIで、ビジネスを次のステージへ">
+  <meta property="og:description" content="AI技術を活用した次世代のWeb制作サービス。高品質なWebサイトを、より速く、より美しく。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://levitass.com/">
+  <meta property="og:image" content="https://levitass.com/images/og-image.webp">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="Levitass AI">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Levitass AI",
+    "url": "https://levitass.com",
+    "logo": "https://levitass.com/images/logo.webp",
+    "description": "AI技術を活用した次世代のWeb制作サービスを提供する企業",
+    "email": "info@levitass.com",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@levitass.com",
+      "contactType": "customer service",
+      "availableLanguage": ["Japanese"]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Levitass AI ホーム">
+        <img class="nav__logo-icon" src="images/logo.png" alt="Levitass AI" width="36" height="36">
+        Levitass <span>AI</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link nav__link--active">ホーム</a>
+        <a href="about.html" class="nav__link">会社概要</a>
+        <a href="services.html" class="nav__link">サービス</a>
+        <a href="contact.html" class="nav__link">お問い合わせ</a>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">無料相談</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <main class="page-content">
+    <!-- Hero Section -->
+    <section class="hero section" id="hero">
+      <div class="hero__bg">
+        <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <svg class="hero__waves" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;bottom:0;left:0;width:100%;height:40%;opacity:0.15;">
+          <defs>
+            <linearGradient id="wave-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#6c63ff" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#00c2ff" stop-opacity="0.4"/>
+            </linearGradient>
+            <linearGradient id="wave-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00c2ff" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#6c63ff" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#wave-grad-1)">
+            <animate attributeName="d"
+              dur="8s" repeatCount="indefinite"
+              values="
+                M0,200 C360,100 720,300 1080,200 S1440,100 1440,200 L1440,400 L0,400 Z;
+                M0,250 C360,150 720,350 1080,250 S1440,150 1440,250 L1440,400 L0,400 Z;
+                M0,200 C360,100 720,300 1080,200 S1440,100 1440,200 L1440,400 L0,400 Z
+              "/>
+          </path>
+          <path fill="url(#wave-grad-2)">
+            <animate attributeName="d"
+              dur="10s" repeatCount="indefinite"
+              values="
+                M0,280 C480,180 960,380 1440,280 L1440,400 L0,400 Z;
+                M0,220 C480,320 960,220 1440,320 L1440,400 L0,400 Z;
+                M0,280 C480,180 960,380 1440,280 L1440,400 L0,400 Z
+              "/>
+          </path>
+        </svg>
+      </div>
+      <div class="hero__content">
+        <p class="hero__tagline fade-in">Elevate Your Business with AI</p>
+        <h1 class="hero__title fade-in">AIで、<br>ビジネスを<br class="sp-only"><span class="text-gradient">次のステージへ</span></h1>
+        <p class="hero__desc fade-in">
+          最先端のAI技術と洗練されたデザインで、<br>
+          あなたのビジネスに最適なWebサイトを創り上げます。
+        </p>
+        <div class="hero__actions fade-in">
+          <a href="contact.html" class="btn btn--primary btn--lg">
+            無料相談する
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="services.html" class="btn btn--secondary btn--lg">サービスを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section section--alt" id="services-overview">
+      <div class="container">
+        <div class="section__header fade-in">
+          <p class="badge">What We Do</p>
+          <h2 class="section__title">提供サービス</h2>
+          <div class="divider"></div>
+          <p class="section__subtitle">AI技術を最大限に活かした3つのサービスで、ビジネスの成長をサポートします。</p>
+        </div>
+        <div class="grid grid--3">
+          <div class="card card--glass fade-in">
+            <div class="card__icon">🎨</div>
+            <h3 class="card__title">Web制作</h3>
+            <p class="card__text">美しいデザインと高いパフォーマンスを両立したWebサイトを制作。レスポンシブ対応、SEO最適化を標準装備。</p>
+          </div>
+          <div class="card card--glass fade-in">
+            <div class="card__icon">🤖</div>
+            <h3 class="card__title">AI統合</h3>
+            <p class="card__text">チャットボット、自動応答、コンテンツ生成など、AI機能をWebサイトにシームレスに統合します。</p>
+          </div>
+          <div class="card card--glass fade-in">
+            <div class="card__icon">📈</div>
+            <h3 class="card__title">運用・改善</h3>
+            <p class="card__text">公開後もデータ分析に基づく継続的な改善提案で、ビジネスの成長を長期的にサポートします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section__header fade-in">
+          <p class="badge">How We Work</p>
+          <h2 class="section__title">制作フロー</h2>
+          <div class="divider"></div>
+          <p class="section__subtitle">AIを活用した効率的な制作プロセスで、高品質なWebサイトを迅速にお届けします。</p>
+        </div>
+        <div class="process">
+          <div class="process__step fade-in">
+            <h3 class="process__title">ヒアリング</h3>
+            <p class="process__desc">ビジネスの目標、ターゲットユーザー、競合状況を丁寧にヒアリング。最適な戦略を一緒に設計します。</p>
+          </div>
+          <div class="process__step fade-in">
+            <h3 class="process__title">デザイン・設計</h3>
+            <p class="process__desc">AIによるトレンド分析とプロのデザインスキルを融合。ワイヤーフレームからモックアップまで迅速に作成。</p>
+          </div>
+          <div class="process__step fade-in">
+            <h3 class="process__title">開発・実装</h3>
+            <p class="process__desc">最新の技術スタックとAI支援コーディングで、高速・安全・美しいWebサイトを構築します。</p>
+          </div>
+          <div class="process__step fade-in">
+            <h3 class="process__title">公開・運用</h3>
+            <p class="process__desc">テスト・最適化を経て公開。AIによるアクセス分析と改善提案で、継続的にサイトを進化させます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section section--alt" id="stats">
+      <div class="container">
+        <div class="stats fade-in">
+          <div class="stat">
+            <div class="stat__number">AI×Web</div>
+            <div class="stat__label">テクノロジー融合</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">100%</div>
+            <div class="stat__label">レスポンシブ対応</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">90+</div>
+            <div class="stat__label">Lighthouseスコア</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">∞</div>
+            <div class="stat__label">成長の可能性</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works Placeholder -->
+    <!-- #works セクション — 実績追加時にここを展開 -->
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        <div class="fade-in">
+          <h2 class="cta-section__title">まずは<span class="text-gradient">無料相談</span>から</h2>
+          <p class="cta-section__desc">
+            プロジェクトの規模に関わらず、お気軽にご相談ください。AIとWebの専門家が最適なプランをご提案します。
+          </p>
+          <a href="contact.html" class="btn btn--primary btn--lg">
+            お問い合わせ
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Levitass <span>AI</span></a>
+          <p class="footer__desc">AI技術を活用した次世代のWeb制作サービスを提供。あなたのビジネスを、テクノロジーの力で次のステージへ。</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">ナビゲーション</h4>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">ホーム</a>
+            <a href="about.html" class="footer__link">会社概要</a>
+            <a href="services.html" class="footer__link">サービス</a>
+            <a href="contact.html" class="footer__link">お問い合わせ</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">サービス</h4>
+          <div class="footer__links">
+            <a href="services.html" class="footer__link">Web制作</a>
+            <a href="services.html" class="footer__link">AI統合</a>
+            <a href="services.html" class="footer__link">運用・改善</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">法的情報</h4>
+          <div class="footer__links">
+            <a href="privacy.html" class="footer__link">プライバシーポリシー</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Levitass AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
