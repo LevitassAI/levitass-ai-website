@@ -2,7 +2,7 @@
 
 /**
  * Levitass AI — Animations
- * IntersectionObserver scroll animations + Canvas particles
+ * IntersectionObserver scroll animations + Canvas particles + Counter animation
  */
 
 (function() {
@@ -51,7 +51,9 @@
 
   var ctx = canvas.getContext('2d');
   var particles = [];
-  var maxParticles = 50;
+  var mouseX = -999;
+  var mouseY = -999;
+  var maxParticles = window.innerWidth < 768 ? 35 : 70;
   var animationId = null;
 
   function resizeCanvas() {
@@ -60,13 +62,20 @@
   }
 
   function createParticle() {
+    var colors = [
+      { r: 108, g: 99, b: 255 },   // Purple
+      { r: 0, g: 194, b: 255 },     // Cyan
+      { r: 130, g: 120, b: 255 }    // Light purple
+    ];
+    var color = colors[Math.floor(Math.random() * colors.length)];
     return {
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      size: Math.random() * 2 + 0.5,
-      speedX: (Math.random() - 0.5) * 0.3,
-      speedY: (Math.random() - 0.5) * 0.3,
-      opacity: Math.random() * 0.5 + 0.1
+      size: Math.random() * 2.5 + 0.5,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: (Math.random() - 0.5) * 0.4,
+      opacity: Math.random() * 0.6 + 0.1,
+      color: color
     };
   }
 
@@ -82,16 +91,33 @@
 
     for (var i = 0; i < particles.length; i++) {
       var p = particles[i];
-      
-      // Draw particle
+
+      // Mouse interaction - push particles away
+      var dx = p.x - mouseX;
+      var dy = p.y - mouseY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 150) {
+        var force = (150 - dist) / 150;
+        p.x += dx * force * 0.02;
+        p.y += dy * force * 0.02;
+      }
+
+      // Draw particle with glow
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(108, 99, 255, ' + p.opacity + ')';
+      ctx.fillStyle = 'rgba(' + p.color.r + ', ' + p.color.g + ', ' + p.color.b + ', ' + p.opacity + ')';
+      ctx.shadowColor = 'rgba(' + p.color.r + ', ' + p.color.g + ', ' + p.color.b + ', ' + (p.opacity * 0.5) + ')';
+      ctx.shadowBlur = 8;
       ctx.fill();
+      ctx.shadowBlur = 0;
 
       // Update position
       p.x += p.speedX;
       p.y += p.speedY;
+
+      // Gentle oscillation
+      p.opacity += Math.sin(Date.now() * 0.001 + i) * 0.002;
+      p.opacity = Math.max(0.05, Math.min(0.7, p.opacity));
 
       // Wrap around
       if (p.x < 0) p.x = canvas.width;
@@ -100,20 +126,29 @@
       if (p.y > canvas.height) p.y = 0;
     }
 
-    // Draw connectors (only for nearby particles)
+    // Draw connectors
     for (var i = 0; i < particles.length; i++) {
       for (var j = i + 1; j < particles.length; j++) {
         var dx = particles[i].x - particles[j].x;
         var dy = particles[i].y - particles[j].y;
         var distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 120) {
-          var lineOpacity = (1 - distance / 120) * 0.15;
+        if (distance < 150) {
+          var lineOpacity = (1 - distance / 150) * 0.12;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = 'rgba(108, 99, 255, ' + lineOpacity + ')';
-          ctx.lineWidth = 0.5;
+          
+          // Gradient line
+          var gradient = ctx.createLinearGradient(
+            particles[i].x, particles[i].y,
+            particles[j].x, particles[j].y
+          );
+          gradient.addColorStop(0, 'rgba(' + particles[i].color.r + ', ' + particles[i].color.g + ', ' + particles[i].color.b + ', ' + lineOpacity + ')');
+          gradient.addColorStop(1, 'rgba(' + particles[j].color.r + ', ' + particles[j].color.g + ', ' + particles[j].color.b + ', ' + lineOpacity + ')');
+          
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 0.6;
           ctx.stroke();
         }
       }
@@ -121,6 +156,18 @@
 
     animationId = requestAnimationFrame(drawParticles);
   }
+
+  // Mouse tracking
+  canvas.addEventListener('mousemove', function(e) {
+    var rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  });
+
+  canvas.addEventListener('mouseleave', function() {
+    mouseX = -999;
+    mouseY = -999;
+  });
 
   // Init
   resizeCanvas();
@@ -133,6 +180,7 @@
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(function() {
       resizeCanvas();
+      maxParticles = window.innerWidth < 768 ? 35 : 70;
       initParticles();
     }, 250);
   });

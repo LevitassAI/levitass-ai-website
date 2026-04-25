@@ -139,6 +139,21 @@ button {
   background-clip: text;
 }
 
+.text-gradient--animated {
+  background: linear-gradient(270deg, #6c63ff, #00c2ff, #6c63ff, #00c2ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -149,4 +164,9 @@ button {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.sp-only { display: none; }
+@media (max-width: 768px) {
+  .sp-only { display: inline; }
 }

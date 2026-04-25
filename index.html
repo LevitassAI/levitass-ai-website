@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Levitass AI — AIで、ビジネスを次のステージへ</title>
-  <meta name="description" content="Levitass AIは、AI技術を活用した次世代のWeb制作サービスを提供します。高品質なWebサイトを、AIの力でより速く、より美しく。">
+  <meta name="description" content="Levitass AIは、現役大学生2人が立ち上げた、AI技術を活用した次世代のWeb制作スタジオです。高品質なWebサイトを、AIの力でより速く、より美しく。">
 
   <!-- OGP -->
   <meta property="og:title" content="Levitass AI — AIで、ビジネスを次のステージへ">
@@ -16,13 +16,12 @@
   <meta property="og:site_name" content="Levitass AI">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicon placeholder -->
   <link rel="icon" type="image/png" href="images/logo.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/variables.css">
@@ -37,9 +36,10 @@
     "@type": "Organization",
     "name": "Levitass AI",
     "url": "https://levitass.com",
-    "logo": "https://levitass.com/images/logo.webp",
-    "description": "AI技術を活用した次世代のWeb制作サービスを提供する企業",
+    "logo": "https://levitass.com/images/logo.png",
+    "description": "現役大学生2人が立ち上げた、AI技術を活用した次世代のWeb制作スタジオ",
     "email": "info@levitass.com",
+    "foundingDate": "2026-04",
     "sameAs": [],
     "contactPoint": {
       "@type": "ContactPoint",
@@ -80,50 +80,52 @@
     <section class="hero section" id="hero">
       <div class="hero__bg">
         <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
-        <svg class="hero__waves" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;bottom:0;left:0;width:100%;height:40%;opacity:0.15;">
-          <defs>
-            <linearGradient id="wave-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#6c63ff" stop-opacity="0.4"/>
-              <stop offset="100%" stop-color="#00c2ff" stop-opacity="0.4"/>
-            </linearGradient>
-            <linearGradient id="wave-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#00c2ff" stop-opacity="0.2"/>
-              <stop offset="100%" stop-color="#6c63ff" stop-opacity="0.2"/>
-            </linearGradient>
-          </defs>
-          <path fill="url(#wave-grad-1)">
-            <animate attributeName="d"
-              dur="8s" repeatCount="indefinite"
-              values="
-                M0,200 C360,100 720,300 1080,200 S1440,100 1440,200 L1440,400 L0,400 Z;
-                M0,250 C360,150 720,350 1080,250 S1440,150 1440,250 L1440,400 L0,400 Z;
-                M0,200 C360,100 720,300 1080,200 S1440,100 1440,200 L1440,400 L0,400 Z
-              "/>
-          </path>
-          <path fill="url(#wave-grad-2)">
-            <animate attributeName="d"
-              dur="10s" repeatCount="indefinite"
-              values="
-                M0,280 C480,180 960,380 1440,280 L1440,400 L0,400 Z;
-                M0,220 C480,320 960,220 1440,320 L1440,400 L0,400 Z;
-                M0,280 C480,180 960,380 1440,280 L1440,400 L0,400 Z
-              "/>
-          </path>
-        </svg>
+        <!-- Gradient Orbs -->
+        <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+        <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+        <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+        <!-- Grid overlay -->
+        <div class="hero__grid" aria-hidden="true"></div>
       </div>
       <div class="hero__content">
-        <p class="hero__tagline fade-in">Elevate Your Business with AI</p>
-        <h1 class="hero__title fade-in">AIで、<br>ビジネスを<br class="sp-only"><span class="text-gradient">次のステージへ</span></h1>
+        <p class="hero__tagline fade-in">
+          <span class="hero__tagline-dot"></span>
+          Founded by Two University Students
+        </p>
+        <h1 class="hero__title fade-in">
+          AIで、<br>ビジネスを<br class="sp-only"><span class="text-gradient text-gradient--animated">次のステージへ</span>
+        </h1>
         <p class="hero__desc fade-in">
           最先端のAI技術と洗練されたデザインで、<br>
           あなたのビジネスに最適なWebサイトを創り上げます。
         </p>
         <div class="hero__actions fade-in">
-          <a href="contact.html" class="btn btn--primary btn--lg">
+          <a href="contact.html" class="btn btn--primary btn--lg btn--glow">
             無料相談する
             <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="services.html" class="btn btn--secondary btn--lg">サービスを見る</a>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="hero__scroll fade-in" aria-hidden="true">
+          <div class="hero__scroll-mouse">
+            <div class="hero__scroll-wheel"></div>
+          </div>
+          <span>Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Story Banner -->
+    <section class="section founder-banner" id="founder-banner">
+      <div class="container">
+        <div class="founder-banner__inner fade-in">
+          <div class="founder-banner__icon">🎓</div>
+          <div class="founder-banner__text">
+            <p class="founder-banner__headline">現役大学生2人が、<span class="text-gradient">本気でAIビジネス</span>に挑む。</p>
+            <p class="founder-banner__sub">若い世代だからこそ見える景色がある。最新テクノロジーをネイティブに操り、あなたのビジネスに新しい風を吹き込みます。</p>
+          </div>
+          <a href="about.html" class="btn btn--secondary btn--sm">ストーリーを読む</a>
         </div>
       </div>
     </section>
@@ -138,20 +140,23 @@
           <p class="section__subtitle">AI技術を最大限に活かした3つのサービスで、ビジネスの成長をサポートします。</p>
         </div>
         <div class="grid grid--3">
-          <div class="card card--glass fade-in">
+          <div class="card card--glass card--hover-glow fade-in">
             <div class="card__icon">🎨</div>
             <h3 class="card__title">Web制作</h3>
             <p class="card__text">美しいデザインと高いパフォーマンスを両立したWebサイトを制作。レスポンシブ対応、SEO最適化を標準装備。</p>
+            <div class="card__arrow">→</div>
           </div>
-          <div class="card card--glass fade-in">
+          <div class="card card--glass card--hover-glow fade-in">
             <div class="card__icon">🤖</div>
             <h3 class="card__title">AI統合</h3>
             <p class="card__text">チャットボット、自動応答、コンテンツ生成など、AI機能をWebサイトにシームレスに統合します。</p>
+            <div class="card__arrow">→</div>
           </div>
-          <div class="card card--glass fade-in">
+          <div class="card card--glass card--hover-glow fade-in">
             <div class="card__icon">📈</div>
             <h3 class="card__title">運用・改善</h3>
             <p class="card__text">公開後もデータ分析に基づく継続的な改善提案で、ビジネスの成長を長期的にサポートします。</p>
+            <div class="card__arrow">→</div>
           </div>
         </div>
       </div>
@@ -192,6 +197,10 @@
       <div class="container">
         <div class="stats fade-in">
           <div class="stat">
+            <div class="stat__number" data-count="2">2</div>
+            <div class="stat__label">大学生ファウンダー</div>
+          </div>
+          <div class="stat">
             <div class="stat__number">AI×Web</div>
             <div class="stat__label">テクノロジー融合</div>
           </div>
@@ -203,26 +212,72 @@
             <div class="stat__number">90+</div>
             <div class="stat__label">Lighthouseスコア</div>
           </div>
-          <div class="stat">
-            <div class="stat__number">∞</div>
-            <div class="stat__label">成長の可能性</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="section" id="why-us">
+      <div class="container">
+        <div class="section__header fade-in">
+          <p class="badge">Why Levitass AI</p>
+          <h2 class="section__title">私たちが選ばれる理由</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="grid grid--2" style="gap: var(--space-10); align-items: center;">
+          <div class="fade-in-left">
+            <div class="why-list">
+              <div class="why-item">
+                <div class="why-item__number">01</div>
+                <div>
+                  <h3 class="why-item__title">AIネイティブ世代</h3>
+                  <p class="why-item__text">デジタルネイティブとして育った私たちは、最新のAI技術を自然に使いこなします。古い慣習にとらわれない、新しい視点でソリューションを提供。</p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-item__number">02</div>
+                <div>
+                  <h3 class="why-item__title">圧倒的なコストパフォーマンス</h3>
+                  <p class="why-item__text">大手代理店のような中間マージンはゼロ。AI活用による効率化でコストを抑えつつ、ハイクオリティな成果物をお届けします。</p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-item__number">03</div>
+                <div>
+                  <h3 class="why-item__title">スピード×品質</h3>
+                  <p class="why-item__text">AIアシスト開発で、従来の半分以下の期間で納品。Lighthouse全項目90点以上を標準保証。速くて、美しい。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fade-in-right">
+            <div class="card card--glass" style="padding: var(--space-10); text-align: center; position: relative; overflow: hidden;">
+              <div class="card__glow" aria-hidden="true"></div>
+              <div style="font-size: 3.5rem; margin-bottom: var(--space-5);">🚀</div>
+              <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-4);">Our Promise</h3>
+              <p style="color: var(--color-text-secondary); line-height: var(--line-height-relaxed); font-size: var(--font-size-sm);">
+                「若いから不安」ではなく、<br>
+                「若いからこそ」を強みに。<br><br>
+                私たちは大学生だからといって<br>
+                妥協は一切しません。<br>
+                <strong style="color: var(--color-text-primary);">プロフェッショナルな品質を、<br>情熱と共にお届けします。</strong>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Works Placeholder -->
-    <!-- #works セクション — 実績追加時にここを展開 -->
-
     <!-- CTA Section -->
     <section class="section cta-section" id="cta">
       <div class="container">
         <div class="fade-in">
-          <h2 class="cta-section__title">まずは<span class="text-gradient">無料相談</span>から</h2>
+          <h2 class="cta-section__title">まずは<span class="text-gradient text-gradient--animated">無料相談</span>から</h2>
           <p class="cta-section__desc">
-            プロジェクトの規模に関わらず、お気軽にご相談ください。AIとWebの専門家が最適なプランをご提案します。
+            プロジェクトの規模に関わらず、お気軽にご相談ください。<br>
+            大学生2人が本気であなたのビジネスに向き合います。
           </p>
-          <a href="contact.html" class="btn btn--primary btn--lg">
+          <a href="contact.html" class="btn btn--primary btn--lg btn--glow">
             お問い合わせ
             <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -237,7 +292,7 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="index.html" class="footer__logo">Levitass <span>AI</span></a>
-          <p class="footer__desc">AI技術を活用した次世代のWeb制作サービスを提供。あなたのビジネスを、テクノロジーの力で次のステージへ。</p>
+          <p class="footer__desc">現役大学生2人が立ち上げた、AI技術を活用した次世代のWeb制作スタジオ。あなたのビジネスを、テクノロジーの力で次のステージへ。</p>
         </div>
         <div>
           <h4 class="footer__heading">ナビゲーション</h4>
