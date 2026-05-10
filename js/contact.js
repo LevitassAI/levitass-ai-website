@@ -108,51 +108,30 @@
     });
   });
 
-  // Form submission
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+  // Check if returning from successful submission
+  var urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('sent') === 'true') {
+    if (successMsg) {
+      successMsg.textContent = 'お問い合わせありがとうございます。1〜2営業日以内にご返信いたします。';
+      successMsg.className = 'form-message form-message--success';
+    }
+    // Clean URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
 
+  // Form submission — validate then submit natively to FormSubmit.co
+  form.addEventListener('submit', function(e) {
     // Hide previous messages
     if (successMsg) { successMsg.className = 'form-message'; successMsg.textContent = ''; }
     if (errorMsg) { errorMsg.className = 'form-message'; errorMsg.textContent = ''; }
 
-    if (!validateForm()) return;
+    if (!validateForm()) {
+      e.preventDefault();
+      return;
+    }
 
-    // Disable button
+    // Validation passed — let the form submit natively to FormSubmit.co
     submitBtn.disabled = true;
     submitBtn.textContent = '送信中...';
-
-    var formData = new FormData(form);
-
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(function(response) {
-      if (response.ok) {
-        // Success
-        if (successMsg) {
-          successMsg.textContent = 'お問い合わせありがとうございます。1〜2営業日以内にご返信いたします。';
-          successMsg.className = 'form-message form-message--success';
-        }
-        form.reset();
-      } else {
-        throw new Error('送信に失敗しました');
-      }
-    })
-    .catch(function() {
-      // Error
-      if (errorMsg) {
-        errorMsg.innerHTML = '送信に失敗しました。時間をおいて再度お試しいただくか、<a href="mailto:info@levitass.com">info@levitass.com</a>に直接ご連絡ください。';
-        errorMsg.className = 'form-message form-message--error';
-      }
-    })
-    .finally(function() {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '送信する <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-    });
   });
 })();
